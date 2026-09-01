@@ -1,4 +1,4 @@
-import {create} from'zustand';
+import { create } from 'zustand';
 
 export interface Recipie {
     id: number;
@@ -11,7 +11,7 @@ interface RecipieStore {
     recipies: Recipie[];
     addRecipie: (recipie: Recipie) => void;
     removeRecipie: (id: number) => void;
-    // 1. Fixed typo: changed parameter from id to the actual recipe object
+    // Fixed typo: changed parameter from id to the actual recipe object
     editRecipie: (recipie: Recipie) => void; 
 }
 
@@ -24,7 +24,7 @@ export const useRecipie = create<RecipieStore>((set) => ({
   removeRecipie: (id) => 
     set((state) => ({ recipies: state.recipies.filter((r) => r.id !== id) })),
     
-  // 2. Fixed syntax and used .map() to update the correct item
+  // Fixed syntax and used .map() to update the correct item
   editRecipie: (updatedRecipe) => 
     set((state) => ({
       recipies: state.recipies.map((r) => 
